@@ -9,8 +9,7 @@ services:
       MYSQL_DATABASE: springdb1
     ports:
       - "3307:3306"
-    volumes:
-      - mysql-data:/var/lib/mysql
+
 
   app:
     build: .
@@ -21,5 +20,3 @@ services:
     depends_on:
       - db
 
-volumes:
-  mysql-data:
