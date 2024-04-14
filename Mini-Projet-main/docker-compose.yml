@@ -1,11 +1,6 @@
-
+version: '3.8'
 
 services:
-  web:
-    image: nginx:latest
-    ports:
-      - "80:80"
-
   db:
     image: mysql:latest
     restart: always
@@ -14,4 +9,18 @@ services:
       MYSQL_DATABASE: springdb1
     ports:
       - "3307:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
 
+  app:
+    build: .
+    image: myapp:v1.0
+    restart: always
+    container_name: back
+    ports:
+      - '8081:8081'  # Adjust port as per your Spring Boot application configuration
+    depends_on:
+      - db
+
+volumes:
+  mysql-data:
