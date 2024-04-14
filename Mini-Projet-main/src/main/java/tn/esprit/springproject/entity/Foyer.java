@@ -35,7 +35,6 @@ public class Foyer {
     private Set<Bloc> blocs;
 
     @OneToOne(mappedBy = "foyer")
-
     private Universite universite ;
 
     public Foyer() {
