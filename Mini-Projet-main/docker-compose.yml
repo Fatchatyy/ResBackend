@@ -8,11 +8,10 @@ services:
 
   db:
     image: mysql:latest
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: fatoutfatout1
       MYSQL_DATABASE: springdb1
-      MYSQL_USER: root
-      MYSQL_PASSWORD: fatoutfatout1
     ports:
       - "3307:3306"
     volumes:
