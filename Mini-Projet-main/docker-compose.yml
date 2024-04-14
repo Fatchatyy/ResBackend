@@ -5,8 +5,6 @@ services:
     image: nginx:latest
     ports:
       - "80:80"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
 
   db:
     image: mysql:latest
@@ -16,7 +14,7 @@ services:
       MYSQL_USER: root
       MYSQL_PASSWORD: fatoutfatout1
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql
 
