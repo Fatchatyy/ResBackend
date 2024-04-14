@@ -14,8 +14,4 @@ services:
       MYSQL_DATABASE: springdb1
     ports:
       - "3307:3306"
-    volumes:
-      - mysql_data:/var/lib/mysql
 
-volumes:
-  mysql_data:
