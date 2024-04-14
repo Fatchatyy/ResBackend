@@ -27,6 +27,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(customizer -> customizer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests((requests) -> requests
+                        .requestMatchers(HttpMethod.GET, "/reservations/retrieve-all-reservations").permitAll()
                         .requestMatchers(HttpMethod.POST, "/login", "/register","/initiate","/confirm").permitAll()
                         .anyRequest().authenticated());
         return http.build();
