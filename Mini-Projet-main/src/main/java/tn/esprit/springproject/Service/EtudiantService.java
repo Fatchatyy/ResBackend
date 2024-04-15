@@ -10,7 +10,7 @@ import tn.esprit.springproject.entity.Etudiant;
 import tn.esprit.springproject.Repository.EtudiantRepository;
 import tn.esprit.springproject.entity.Reservation;
 
-import java.awt.*;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.util.List;
@@ -75,8 +75,8 @@ public class EtudiantService implements iEtudiantService{
         return etudiantRespository.save(etudiant);
     }
     public Page<Etudiant> findEtudiantsWithPagination(int offset, int pageSize){
-        Page<Etudiant> etudiants = etudiantRespository.findAll(PageRequest.of(offset, pageSize));
-        return  etudiants;
+        return etudiantRespository.findAll(PageRequest.of(offset, pageSize));
+
     }
     public ByteArrayInputStream etudiantPDFReport(List<Etudiant> etudiants) {
         Document document = new Document();

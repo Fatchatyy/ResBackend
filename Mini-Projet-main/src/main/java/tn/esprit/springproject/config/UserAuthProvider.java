@@ -23,7 +23,7 @@ import java.util.Date;
 @RequiredArgsConstructor
 @Component
 public class UserAuthProvider {
-    @Value("${security.jwt.token.secret-key:secret-key")
+    @Value("${security.jwt.token.secret-key:secret-key}")
     private String secretKey;
     private static final Logger logger = LoggerFactory.getLogger(UserAuthProvider.class);
 

@@ -10,9 +10,9 @@ import tn.esprit.springproject.Repository.ReservationRepository;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Date;
+
 import java.util.List;
-import org.hibernate.query.Query;
+
 @Service
 public class ReservationService implements  iReservationService{
 @Autowired
@@ -48,7 +48,7 @@ public class ReservationService implements  iReservationService{
 
         // Format reservations data into the required format for PDF.co
         String htmlContent = formatReservationDataForHTML(reservation);
-        System.out.println("htmlContent" + htmlContent);
+
         // Make API call to PDF.co using RestTemplate with the formatted data
         String apiKey = "fatmamansour1106@gmail.com_g9AGw4P71N3bfwIihguAyLoxn6q96H705dn95W871YMqklckk6CS78cc8xwGP8g6Y4fWXvFfE21h4tuP2jN5LG6JpBN34QrRM398d39J7SklzYjT723H64PT14xAKwX81XgNf5Q7WvZZU3p805tRIz8VHM";
         HttpHeaders headers = new HttpHeaders();
@@ -59,7 +59,7 @@ public class ReservationService implements  iReservationService{
 
         RestTemplate restTemplate = new RestTemplate();
         HttpEntity<String> request = new HttpEntity<>(requestBody, headers);
-        System.out.println("request" + request);
+
         try {
             ResponseEntity<byte[]> response = restTemplate.exchange(
                     "https://api.pdf.co/v1/pdf/convert/from/html", // Example API endpoint
@@ -72,7 +72,7 @@ public class ReservationService implements  iReservationService{
             byte[] pdfBytes = response.getBody();
             if (pdfBytes != null) {
                 savePDFToFile(pdfBytes, "generated.pdf");
-                System.out.println("the byte array"+new ByteArrayResource(pdfBytes));
+
                 return new ByteArrayResource(pdfBytes);
             } else {
                 return null;

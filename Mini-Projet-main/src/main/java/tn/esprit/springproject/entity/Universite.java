@@ -1,6 +1,6 @@
 package tn.esprit.springproject.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 

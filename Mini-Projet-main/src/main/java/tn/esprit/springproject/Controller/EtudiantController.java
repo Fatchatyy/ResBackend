@@ -9,8 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.springproject.Dto.APIResponse;
 import tn.esprit.springproject.Repository.EtudiantRepository;
-import tn.esprit.springproject.Service.EtudiantService;
-import tn.esprit.springproject.Service.iChambreService;
+
 import tn.esprit.springproject.Service.iEtudiantService;
 import tn.esprit.springproject.entity.Etudiant;
 
@@ -31,24 +30,24 @@ public class EtudiantController
 
     @GetMapping("/retrieve-all-etudiants")
     public List<Etudiant> getEtudiants() {
-    List<Etudiant> listEtudiants = etudiantsevice.retrieveAllEtudiants();
-    return listEtudiants;
+    return etudiantsevice.retrieveAllEtudiants();
+
 }
     @GetMapping("/retrieve-etudiant/{etudiant-id}")
     public Etudiant retrieveEtudiant(@PathVariable("etudiant-id") Long etudiantId) { return etudiantsevice.retrieveEtudiant(etudiantId);
     }
     @PostMapping("/add-etudiant")
     public Etudiant addEtudiant(@RequestBody Etudiant e) {
-        Etudiant etudiant = etudiantsevice.addEtudiant(e);
-        return etudiant;
+        return etudiantsevice.addEtudiant(e);
+
     }
     @DeleteMapping("/remove-etudiant/{etudiant-id}")
     public void removeEtudiant(@PathVariable("etudiant-id") Long etudiantId) { etudiantsevice.removeEtudiant(etudiantId);
     }
     @PutMapping("/update-etudiant")
     public Etudiant updateEtudiant(@RequestBody Etudiant e) {
-        Etudiant etudiant= etudiantsevice.updateEtudiant(e);
-        return etudiant;
+        return etudiantsevice.updateEtudiant(e);
+
     }
     @PostMapping("/affecter-etud/{nomEt}/{prenomEt}/{idReservation}")
     public Etudiant affecterEtudiantAReservation(  @PathVariable("nomEt") String nomEt,@PathVariable("prenomEt") String prenomEt,@PathVariable("idReservation") long idReservation)

@@ -5,7 +5,7 @@ import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import tn.esprit.springproject.config.PasswordConfig;
+
 import tn.esprit.springproject.entity.ResetPasswordToken;
 import tn.esprit.springproject.entity.User;
 import tn.esprit.springproject.Repository.ResetPasswordTokenRepository;

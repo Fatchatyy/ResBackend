@@ -6,7 +6,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import tn.esprit.springproject.Repository.BlocRepository;
 import tn.esprit.springproject.Repository.NotificationRepository;
-import tn.esprit.springproject.entity.Bloc;
+
 import tn.esprit.springproject.entity.Foyer;
 import tn.esprit.springproject.Repository.FoyerRepository;
 import tn.esprit.springproject.entity.Notification;
@@ -33,7 +33,7 @@ private JavaMailSender mailsender;
     @Override
     public Foyer addFoyer(Foyer foyer) {
         Foyer addedFoyer = foyerRespository.save(foyer);
-        System.out.println("Foyer ajouté : " + addedFoyer.getNomFoyer());
+
 
         // Après avoir ajouté le foyer, créez une notification
         String message = "Un nouveau foyer a été ajouté : " + addedFoyer.getNomFoyer(); // Personnalisez le message selon vos besoins
@@ -96,14 +96,14 @@ private JavaMailSender mailsender;
         message.setText(body);
         message.setSubject(subject);
         mailsender.send(message);
-        System.out.println("mail sent");
+
     }
     public List<Notification> getNotificationsByUser(String username) {
          return notificationRepository.findByUsernameOrderByTimestampDesc(username);
     }
 
     public void createNotification(String username, String message) {
-        System.out.println("Création d'une notification pour " + username + " : " + message);
+
 
         Notification notification = new Notification();
         notification.setUsername(username);

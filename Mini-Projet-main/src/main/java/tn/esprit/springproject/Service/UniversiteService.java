@@ -68,8 +68,8 @@ if (universite!= null)
     }
     @Override
     public List<Universite> searchUniversites(String query) {
-        List<Universite> universites = universiteRepository.searchUniversites(query);
-        return universites;
+        return universiteRepository.searchUniversites(query);
+
     }
 
 }

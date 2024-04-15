@@ -6,13 +6,11 @@ import tn.esprit.springproject.entity.Bloc;
 import tn.esprit.springproject.Repository.BlocRepository;
 import tn.esprit.springproject.entity.Chambre;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 @Service
 public class BlocService implements iBlocService{
-    //    EtudiantRespository etudiantRespository;
+
 
     @Autowired
     BlocRepository blocRepository;

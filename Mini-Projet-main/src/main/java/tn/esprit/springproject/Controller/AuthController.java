@@ -1,6 +1,6 @@
 package tn.esprit.springproject.Controller;
 
-import jakarta.websocket.server.PathParam;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -45,7 +45,6 @@ public class AuthController {
     @PostMapping("/initiate")
     public ResponseEntity<ResetPasswordToken> initiatePasswordReset(@RequestBody Map<String, String> requestBody) {
         String email = requestBody.get("login");
-        String token = requestBody.get("token");
         passwordResetService.initiatePasswordReset(email);
 
         return ResponseEntity.ok(passwordResetService.initiatePasswordReset(email));
@@ -53,8 +52,8 @@ public class AuthController {
     @PostMapping("/confirm")
     public ResponseEntity<Void> confirmResetPassword(@RequestBody Map<String, String> requestBody) {
         String token = requestBody.get("token");
-        String Password = requestBody.get("password");
-        boolean success = passwordResetService.confirmPasswordReset(token,Password);
+        String password = requestBody.get("password");
+        boolean success = passwordResetService.confirmPasswordReset(token,password);
 
         if (success) {
             return ResponseEntity.ok().build();
@@ -65,8 +64,8 @@ public class AuthController {
     }
     @GetMapping("/userinfo/{id}")
     public Optional<User> getUser(@PathVariable("id") Long id){
-        Optional<User> user = respository.findById(id);
-      return user;
+        return respository.findById(id);
+    //  return user;
     }
 }
 

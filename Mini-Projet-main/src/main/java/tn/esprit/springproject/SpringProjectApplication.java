@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.event.EventListener;
-import org.springframework.mail.SimpleMailMessage;
+
 import org.springframework.scheduling.annotation.EnableScheduling;
 import tn.esprit.springproject.Service.iFoyerService;
 

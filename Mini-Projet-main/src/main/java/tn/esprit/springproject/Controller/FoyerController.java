@@ -20,8 +20,8 @@ public class FoyerController {
 
     @GetMapping("/retrieve-all-foyers")
     public List<Foyer> getFoyers() {
-        List<Foyer> listFoyers = foyerService.retrieveAllFoyers();
-        return listFoyers;
+        return foyerService.retrieveAllFoyers();
+
     }
 
     @GetMapping("/retrieve-foyer/{foyer-id}")
@@ -53,8 +53,8 @@ catch (Exception exp){
     @PutMapping("/add-foyerwith-bloc")
     public Foyer addFoyerWithBloc(@RequestBody Foyer f){
 
-        Foyer foyer = foyerService.addFoyerWithBloc(f);
-        return foyer ;
+        return foyerService.addFoyerWithBloc(f);
+
 
     }
 
